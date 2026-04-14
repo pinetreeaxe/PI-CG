@@ -1,3 +1,5 @@
-2026/03/12-13:11:30.401 5968 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Site Characteristics Database/MANIFEST-000001
-2026/03/12-13:11:30.414 5968 Recovering log #3
-2026/03/12-13:11:30.415 5968 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Site Characteristics Database/000003.log 
+2026/03/21-16:26:06.209 c63c Log #3: 12 ops saved to Table #4 OK
+2026/03/21-16:26:06.223 c63c Archiving C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Site Characteristics Database/000003.log: OK
+2026/03/21-16:26:06.224 c63c Table #4: 12 entries OK
+2026/03/21-16:26:06.239 c63c Archiving C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Site Characteristics Database/MANIFEST-000001: OK
+2026/03/21-16:26:06.285 c63c **** Repaired leveldb C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Site Characteristics Database; recovered 1 files; 389 bytes. Some data may have been lost. ****

@@ -1,6 +1,74 @@
-[10364:13544:0321/155430.076:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[10364:22632:0321/155430.203:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[10364:13544:0321/155430.277:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[10364:13544:0321/155438.066:ERROR:device_event_log_impl.cc(196)] [15:54:37.758] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[13720:18512:0321/155439.396:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-BC43412C99CFADC1E1A873D049F5EBE3 will be ignored
-[10364:13544:0321/155929.176:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[34536:25704:0321/162605.744:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[34536:25704:0321/162605.854:ERROR:os_crypt_win.cc(100)] Failed to decrypt: Chave inválida para uso no estado especificado. (0x8009000B)
+[34536:27804:0321/162605.989:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[34536:25704:0321/162606.083:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[34536:53484:0321/162654.015:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[34536:53484:0321/162654.240:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[34536:53484:0321/162654.357:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[34536:53484:0321/162654.429:WARNING:leveldb_database.cc(141)] Unable to open C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata: IO error: C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\shared_proto_db\metadata/MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[34536:27804:0321/162657.188:WARNING:value_store_frontend.cc(47)] Reading ahfgeienlihckogmohjhadlkjgocpleb.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[34536:27804:0321/162657.197:WARNING:value_store_frontend.cc(47)] Reading mhjfbmdgcfjbbpaeojofohoefgiehjai.alarms from  failed: IO error: .../MANIFEST-000001: Unable to create sequential file (ChromeMethodBFE: 7::NewSequentialFile::1)
+[59120:18516:0321/162657.239:ERROR:backend_impl.cc(989)] Critical error found -8
+[59120:18516:0321/162657.239:ERROR:entry_impl.cc(1029)] No file for b2020000
+[59120:18516:0321/162657.241:WARNING:storage_block-inl.h(138)] Failed data load.
+[14396:1752:0321/162703.453:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-B2C15BA6DC38B7CBAAAACA2CFF4C3B51 will be ignored
+[34536:25704:0321/181405.443:ERROR:device_event_log_impl.cc(196)] [18:14:05.440] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Elemento não encontrado. (0x490)
+[34536:59220:0322/054456.864:WARNING:dns_config_service_win.cc(605)] Failed to read DnsConfig.
+[34536:25704:0322/063948.767:ERROR:device_event_log_impl.cc(196)] [06:39:48.452] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Elemento não encontrado. (0x490)
+[34536:50824:0322/203801.684:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSuspend([this=00006D140015B540])
+[34536:50824:0322/203801.685:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnResume([this=00006D140015B540])
+[34536:50824:0322/203801.685:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=100})
+[34536:25704:0322/203801.690:VERBOSE1:profile_manager.cc(1325)] AddKeepAlive(Default, kExtensionUpdater). keep_alives=[kWaitingForFirstBrowserWindow (1), kAppWindow (1), kExtensionUpdater (1)]
+[34536:25704:0322/203801.690:VERBOSE1:profile_manager.cc(1377)] RemoveKeepAlive(Default, kExtensionUpdater). keep_alives=[kWaitingForFirstBrowserWindow (1), kAppWindow (1)]
+[34536:50824:0322/203801.690:VERBOSE1:media_stream_manager.cc(1533)] video capture: VideoCaptureManager::OnScreenUnlocked
+[34536:50824:0322/222312.177:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSuspend([this=00006D140015B540])
+[34536:50824:0322/222312.178:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnResume([this=00006D140015B540])
+[34536:50824:0322/222312.180:VERBOSE1:media_stream_manager.cc(1533)] video capture: VideoCaptureManager::OnScreenLocked
+[34536:50824:0322/222330.188:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=21})
+[34536:50824:0322/222332.188:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=20})
+[34536:50824:0322/222333.189:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=19})
+[34536:50824:0322/222334.190:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=18})
+[34536:50824:0322/222335.188:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=17})
+[34536:50824:0322/222337.189:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=16})
+[34536:50824:0322/222339.131:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=15})
+[34536:50824:0322/222341.132:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=14})
+[34536:50824:0322/222344.132:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=15})
+[34536:50824:0322/222345.134:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=16})
+[34536:50824:0322/222346.135:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=17})
+[34536:50824:0322/222348.134:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=18})
+[34536:50824:0322/222349.134:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=19})
+[34536:50824:0322/222352.134:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=20})
+[34536:50824:0322/222353.133:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=21})
+[34536:50824:0322/222355.135:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=22})
+[34536:50824:0322/222358.134:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222359.135:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=22})
+[34536:50824:0322/222400.135:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222402.135:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222406.137:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222408.136:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=22})
+[34536:50824:0322/222414.137:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=21})
+[34536:50824:0322/222425.140:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=22})
+[34536:50824:0322/222433.142:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222434.143:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=22})
+[34536:50824:0322/222435.141:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222438.142:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222442.143:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=25})
+[34536:50824:0322/222443.143:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222446.145:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=25})
+[34536:50824:0322/222448.144:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222453.144:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=25})
+[34536:50824:0322/222454.145:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222514.148:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222515.148:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0322/222516.147:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=23})
+[34536:50824:0322/222517.148:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=24})
+[34536:50824:0323/030319.751:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSuspend([this=00006D140015B540])
+[34536:50824:0323/030319.751:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnResume([this=00006D140015B540])
+[34536:50824:0323/030319.751:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSpeedLimitChange({this=00006D140015B540}, {new_limit=100})
+[34536:25704:0323/030319.753:VERBOSE1:profile_manager.cc(1325)] AddKeepAlive(Default, kExtensionUpdater). keep_alives=[kWaitingForFirstBrowserWindow (1), kAppWindow (1), kExtensionUpdater (1)]
+[34536:25704:0323/030319.753:VERBOSE1:profile_manager.cc(1377)] RemoveKeepAlive(Default, kExtensionUpdater). keep_alives=[kWaitingForFirstBrowserWindow (1), kAppWindow (1)]
+[34536:50824:0323/043943.579:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnSuspend([this=00006D140015B540])
+[34536:50824:0323/043943.579:VERBOSE1:media_stream_manager.cc(1533)] MSPL::OnResume([this=00006D140015B540])
+[59120:1584:0323/043945.254:VERBOSE1:network_delegate.cc(36)] NetworkDelegate::NotifyBeforeURLRequest: http://192.168.1.2:8080/Service/DIALServer/Apps/DeviceInfo.xml
+[34536:25704:0323/043946.663:VERBOSE1:frame_host_impl.cc(515)] frame 6-F2291373E3FB8918FEC776CEC98F7AAD (sub) detached (reason=RENDER_FRAME_DELETED, is_connected=0)
+[34536:25704:0323/043946.674:WARNING:sad_tab.cc(255)] Tab Killed: https://editor.unrealengine.com/
