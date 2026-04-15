@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [34536:25704:0321/162605.744:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
 [34536:25704:0321/162605.854:ERROR:os_crypt_win.cc(100)] Failed to decrypt: Chave inválida para uso no estado especificado. (0x8009000B)
 [34536:27804:0321/162605.989:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
@@ -72,3 +73,11 @@
 [59120:1584:0323/043945.254:VERBOSE1:network_delegate.cc(36)] NetworkDelegate::NotifyBeforeURLRequest: http://192.168.1.2:8080/Service/DIALServer/Apps/DeviceInfo.xml
 [34536:25704:0323/043946.663:VERBOSE1:frame_host_impl.cc(515)] frame 6-F2291373E3FB8918FEC776CEC98F7AAD (sub) detached (reason=RENDER_FRAME_DELETED, is_connected=0)
 [34536:25704:0323/043946.674:WARNING:sad_tab.cc(255)] Tab Killed: https://editor.unrealengine.com/
+=======
+[3732:20508:0321/161938.880:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[3732:18980:0321/161938.942:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[3732:20508:0321/161938.993:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[3732:20508:0321/161945.613:ERROR:device_event_log_impl.cc(196)] [16:19:45.545] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[5784:17740:0321/161945.826:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-143FA593570A4BC6F28F85C52B39F228 will be ignored
+[3732:20508:0321/162748.007:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+>>>>>>> Stashed changes
