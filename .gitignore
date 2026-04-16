@@ -34,6 +34,11 @@
 #################################
 # Miscellaneous Generated Files #
 #################################
+
+#Large Datasets
+Dataset/
+Dataset.zip
+
 # ADD AS NEED BE
 # Visual Studio 2015 user specific files
 .vs/

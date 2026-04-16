@@ -4,11 +4,3 @@ Criação de um objecto 3D a partir de um objecto real
 Criação de cenários 3D + criação de um dataset
 Criação de um dataset de fotografias do objecto num ambiente semelhante ao simulado
 Testar os dois datasets com um detector tipo YOLO
-
-
-4- Stereo depth map com Unreal + DL (ARF)
-
-Elaboração de um cenário em Unreal (pode ser importado)
-Criação de um dataset com monocular e stereo depths maps para o mesmo cenário
-Teste de redes para detecção de profundidade
-Comparação com stereo depth maps utilizando técnicas de visão tradicional
