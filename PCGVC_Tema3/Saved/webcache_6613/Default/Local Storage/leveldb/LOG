@@ -1,3 +1,20 @@
-2026/04/16-20:40:21.278 5670 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
-2026/04/16-20:40:21.293 5670 Recovering log #12
-2026/04/16-20:40:21.298 5670 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Local Storage\leveldb/000012.log 
+2026/04/16-23:19:16.815 16f0 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/04/16-23:19:16.824 16f0 Recovering log #15
+2026/04/16-23:19:16.829 16f0 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PCGVC_Tema3\Saved\webcache_6613\Default\Local Storage\leveldb/000015.log 
+2026/04/16-23:29:37.164 ae8 Level-0 table #18: started
+2026/04/16-23:29:37.170 ae8 Level-0 table #18: 87143 bytes OK
+2026/04/16-23:29:37.172 ae8 Delete type=0 #15
+2026/04/16-23:32:37.163 ae8 Level-0 table #20: started
+2026/04/16-23:32:37.171 ae8 Level-0 table #20: 73868 bytes OK
+2026/04/16-23:32:37.174 ae8 Delete type=0 #17
+2026/04/16-23:32:37.176 ae8 Compacting 4@0 + 0@1 files
+2026/04/16-23:32:37.182 ae8 Generated table #21@0: 8 keys, 31376 bytes
+2026/04/16-23:32:37.182 ae8 Compacted 4@0 + 0@1 files => 31376 bytes
+2026/04/16-23:32:37.183 ae8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/04/16-23:32:37.184 ae8 Delete type=2 #3
+2026/04/16-23:32:37.185 ae8 Delete type=2 #14
+2026/04/16-23:32:37.185 ae8 Delete type=2 #18
+2026/04/16-23:32:37.185 ae8 Delete type=2 #20
+2026/04/16-23:39:08.398 ae8 Level-0 table #23: started
+2026/04/16-23:39:08.408 ae8 Level-0 table #23: 77899 bytes OK
+2026/04/16-23:39:08.410 ae8 Delete type=0 #19
