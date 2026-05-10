@@ -1,7 +1,0 @@
-[23984:12420:0416/000135.917:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[23984:12420:0416/000135.933:ERROR:persistent_memory_allocator.cc(908)] Corruption detected in shared-memory segment.
-[23984:21820:0416/000136.029:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[23984:12420:0416/000136.134:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[23984:12420:0416/000142.261:WARNING:alloy_constrained_window_views_client.cc(77)] No likely focused browser
-[23984:12420:0416/000146.587:ERROR:device_event_log_impl.cc(196)] [00:01:45.959] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[19856:22432:0416/000146.594:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-D6598E9E0A11F9B7AA321419B0963DEB will be ignored
