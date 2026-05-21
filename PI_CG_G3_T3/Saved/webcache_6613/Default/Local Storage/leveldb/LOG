@@ -1,33 +1,3 @@
-2026/05/21-20:40:21.449 4058 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
-2026/05/21-20:40:21.459 4058 Recovering log #3
-2026/05/21-20:40:21.465 4058 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000003.log 
-2026/05/21-20:49:36.221 6d00 Level-0 table #5: started
-2026/05/21-20:49:36.237 6d00 Level-0 table #5: 70004 bytes OK
-2026/05/21-20:49:36.241 6d00 Delete type=0 #3
-2026/05/21-20:57:45.453 6d00 Level-0 table #7: started
-2026/05/21-20:57:45.465 6d00 Level-0 table #7: 76211 bytes OK
-2026/05/21-20:57:45.469 6d00 Delete type=0 #4
-2026/05/21-20:58:12.526 6d00 Level-0 table #9: started
-2026/05/21-20:58:12.546 6d00 Level-0 table #9: 64402 bytes OK
-2026/05/21-20:58:12.551 6d00 Delete type=0 #6
-2026/05/21-21:03:33.976 6d00 Level-0 table #11: started
-2026/05/21-21:03:33.987 6d00 Level-0 table #11: 68242 bytes OK
-2026/05/21-21:03:33.990 6d00 Delete type=0 #8
-2026/05/21-21:03:49.741 6d00 Level-0 table #13: started
-2026/05/21-21:03:49.751 6d00 Level-0 table #13: 73370 bytes OK
-2026/05/21-21:03:49.754 6d00 Delete type=0 #10
-2026/05/21-21:06:39.875 6d00 Level-0 table #15: started
-2026/05/21-21:06:39.887 6d00 Level-0 table #15: 87802 bytes OK
-2026/05/21-21:06:39.892 6d00 Delete type=0 #12
-2026/05/21-21:06:39.895 6d00 Compacting 4@0 + 1@1 files
-2026/05/21-21:06:39.913 6d00 Generated table #16@0: 3 keys, 30352 bytes
-2026/05/21-21:06:39.914 6d00 Compacted 4@0 + 1@1 files => 30352 bytes
-2026/05/21-21:06:39.914 6d00 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/05/21-21:06:39.916 6d00 Delete type=2 #7
-2026/05/21-21:06:39.916 6d00 Delete type=2 #9
-2026/05/21-21:06:39.916 6d00 Delete type=2 #11
-2026/05/21-21:06:39.916 6d00 Delete type=2 #13
-2026/05/21-21:06:39.917 6d00 Delete type=2 #15
-2026/05/21-21:08:35.692 6d00 Level-0 table #18: started
-2026/05/21-21:08:35.702 6d00 Level-0 table #18: 86266 bytes OK
-2026/05/21-21:08:35.706 6d00 Delete type=0 #14
+2026/05/21-22:02:26.557 5494 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/21-22:02:26.570 5494 Recovering log #17
+2026/05/21-22:02:26.577 5494 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000017.log 
