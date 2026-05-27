@@ -1,8 +1,0 @@
-[10148:1568:0521/213710.946:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[10148:4360:0521/213711.272:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[10148:1568:0521/213711.425:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[10148:1568:0521/213722.663:ERROR:device_event_log_impl.cc(196)] [21:37:22.008] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[7512:20312:0521/213722.675:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-D86718E11A4876E60E0AA426458B6345 will be ignored
-[10148:8180:0521/213723.071:ERROR:cast_crl.cc(443)] CRL - Verification failed.
-[10148:8180:0521/214945.218:ERROR:cast_crl.cc(443)] CRL - Verification failed.
-[10148:1568:0521/220207.638:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
