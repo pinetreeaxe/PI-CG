@@ -1,0 +1,12 @@
+[20972:27532:0527/224420.601:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[20972:25224:0527/224420.651:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[20972:27532:0527/224420.687:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[20972:27532:0527/224425.808:ERROR:device_event_log_impl.cc(196)] [22:44:25.778] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[17792:12668:0527/224426.148:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-C394084D0F5EA6C32414939E4C9424DE will be ignored
+[20972:19612:0527/224426.807:ERROR:cast_crl.cc(443)] CRL - Verification failed.
+[25948:27132:0527/224431.768:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 8-4A5F5AB9D53C2BBDE08BDAFC1FAAF0EE will be ignored
+[26548:21052:0527/231320.356:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame B-B0D2CAAA7AD6AE2AD99B1741DF92564E will be ignored
+[20972:19612:0527/231325.700:ERROR:cast_crl.cc(443)] CRL - Verification failed.
+[20972:27532:0527/231438.023:ERROR:menu_runner_views_aura.cc(24)] Window handle is required for default OSR context menu.
+[20972:27532:0527/231438.023:ERROR:menu_manager.cc(198)] Default context menu implementation is not available; canceling the menu
+[20972:27532:0527/232847.485:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
