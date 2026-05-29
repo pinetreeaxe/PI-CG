@@ -1,0 +1,18 @@
+2026/05/28-23:28:51.425 29e0 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/28-23:28:51.438 29e0 Recovering log #43
+2026/05/28-23:28:51.444 29e0 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000043.log 
+2026/05/28-23:38:07.435 32b4 Level-0 table #47: started
+2026/05/28-23:38:07.463 32b4 Level-0 table #47: 80386 bytes OK
+2026/05/28-23:38:07.468 32b4 Delete type=0 #43
+2026/05/28-23:38:07.469 32b4 Compacting 4@0 + 1@1 files
+2026/05/28-23:38:07.480 32b4 Generated table #48@0: 9 keys, 32582 bytes
+2026/05/28-23:38:07.481 32b4 Compacted 4@0 + 1@1 files => 32582 bytes
+2026/05/28-23:38:07.482 32b4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/28-23:38:07.483 32b4 Delete type=2 #37
+2026/05/28-23:38:07.483 32b4 Delete type=2 #39
+2026/05/28-23:38:07.483 32b4 Delete type=2 #41
+2026/05/28-23:38:07.483 32b4 Delete type=2 #44
+2026/05/28-23:38:07.483 32b4 Delete type=2 #47
+2026/05/28-23:55:53.798 32b4 Level-0 table #50: started
+2026/05/28-23:55:53.817 32b4 Level-0 table #50: 72258 bytes OK
+2026/05/28-23:55:53.821 32b4 Delete type=0 #46
