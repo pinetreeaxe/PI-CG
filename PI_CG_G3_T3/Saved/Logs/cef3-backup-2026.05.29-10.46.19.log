@@ -1,0 +1,11 @@
+[22004:22980:0529/113704.093:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[22004:16764:0529/113704.523:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[22004:22980:0529/113704.704:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[22004:22980:0529/113723.077:ERROR:device_event_log_impl.cc(196)] [11:37:22.746] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[23508:2740:0529/113724.079:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-0E6BFF84C1B9CBF0507BA9073E590206 will be ignored
+[6312:1916:0529/113759.927:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 8-F019DF4EAADE00ECF00977E82A6F5404 will be ignored
+[19844:22488:0529/114351.117:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(103,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[18580:21680:0529/114527.869:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame A-D1C2699EC1F8415AFC49FEEECBC84FB2 will be ignored
+[22004:22980:0529/114619.124:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
