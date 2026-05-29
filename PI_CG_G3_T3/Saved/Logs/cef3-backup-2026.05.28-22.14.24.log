@@ -1,7 +1,0 @@
-[10700:8528:0528/230618.917:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[10700:11764:0528/230618.995:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[10700:8528:0528/230619.041:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[10700:8528:0528/230624.440:ERROR:device_event_log_impl.cc(196)] [23:06:24.164] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[9684:8920:0528/230625.766:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-98C912CDC66B1C03B26467631E6603C1 will be ignored
-[10700:25108:0528/231127.932:ERROR:cast_crl.cc(443)] CRL - Verification failed.
-[10700:8528:0528/231424.208:WARNING:page_discarding_helper.cc(138)] Discarding multiple pages with target (kb): 0
