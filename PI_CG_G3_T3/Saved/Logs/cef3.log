@@ -1,51 +1,11 @@
-[13644:8724:0528/235908.681:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[13644:26512:0528/235908.791:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[13644:8724:0528/235908.837:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[13644:8724:0528/235917.938:ERROR:device_event_log_impl.cc(196)] [23:59:17.613] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[24076:3012:0528/235919.658:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-D64E6E3818FB2814AC262DC0F1D2BC75 will be ignored
-[24608:16836:0529/000021.639:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[24608:21380:0529/000021.721:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[24608:16836:0529/000021.785:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[24608:16836:0529/000027.221:ERROR:device_event_log_impl.cc(196)] [00:00:27.033] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[17348:18544:0529/000027.805:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-357FC7834551D170788C0FFD9A98A6F7 will be ignored
-[24608:7196:0529/000028.366:WARNING:browser_info.cc(345)] Returning a speculative frame for [8,5]
-[24608:16836:0529/000028.394:WARNING:browser_info.cc(345)] Returning a speculative frame for [9,5]
-[24608:16836:0529/000028.395:WARNING:browser_info.cc(345)] Returning a speculative frame for [9,5]
-[24608:16836:0529/000028.395:WARNING:browser_info.cc(345)] Returning a speculative frame for [9,5]
-[24608:16836:0529/000028.395:WARNING:browser_info.cc(345)] Returning a speculative frame for [9,5]
-[24608:7196:0529/000028.477:WARNING:browser_info.cc(345)] Returning a speculative frame for [9,5]
-[6576:9792:0529/000031.052:WARNING:codec.cc(525)] Explicitly added H264 constrained baseline to list of supported formats.
-[6576:9792:0529/000033.707:WARNING:codec.cc(525)] Explicitly added H264 constrained baseline to list of supported formats.
-[6576:26092:0529/000033.744:WARNING:codec.cc(525)] Explicitly added H264 constrained baseline to list of supported formats.
-[6576:26092:0529/000033.745:WARNING:codec.cc(525)] Explicitly added H264 constrained baseline to list of supported formats.
-[6576:26092:0529/000033.747:WARNING:codec.cc(525)] Explicitly added H264 constrained baseline to list of supported formats.
-[21324:24832:0529/000033.946:WARNING:host_resolver_dns_task.cc(863)] Address list empty after RFC3484 sort
-[21324:24832:0529/000033.973:WARNING:host_resolver_dns_task.cc(863)] Address list empty after RFC3484 sort
-[21324:24832:0529/000033.975:ERROR:socket_manager.cc(147)] Failed to resolve address for stun.cloudflare.com., errorcode: -105
-[21324:24832:0529/000033.975:ERROR:socket_manager.cc(147)] Failed to resolve address for stun.cloudflare.com., errorcode: -105
-[21324:24832:0529/000033.975:ERROR:socket_manager.cc(147)] Failed to resolve address for stun.cloudflare.com., errorcode: -105
-[6576:26092:0529/000033.975:WARNING:stun_port.cc(442)] Port[4c32c00:0:1:0:host:Net[any:0:0:0:x:x:x:x:x/0:Wildcard:id=0]]: StunPort: stun host lookup received error -1
-[6576:26092:0529/000033.975:WARNING:stun_port.cc(442)] Port[4c33400:1:1:0:host:Net[any:0:0:0:x:x:x:x:x/0:Wildcard:id=0]]: StunPort: stun host lookup received error -1
-[6576:26092:0529/000033.975:WARNING:stun_port.cc(442)] Port[4ccc000:2:1:0:host:Net[any:0:0:0:x:x:x:x:x/0:Wildcard:id=0]]: StunPort: stun host lookup received error -1
-[13644:8724:0529/000043.747:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
-[25204:8904:0529/000051.276:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame A-7CA7AECA408F89F15FA9EDA5E0393CFC will be ignored
-[9992:25072:0529/000128.133:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame C-6153602EF11F077B1CF8CDA2B178A782 will be ignored
-[920:18260:0529/000238.915:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+[22004:22980:0529/113704.093:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[22004:16764:0529/113704.523:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[22004:22980:0529/113704.704:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[22004:22980:0529/113723.077:ERROR:device_event_log_impl.cc(196)] [11:37:22.746] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[23508:2740:0529/113724.079:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-0E6BFF84C1B9CBF0507BA9073E590206 will be ignored
+[6312:1916:0529/113759.927:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 8-F019DF4EAADE00ECF00977E82A6F5404 will be ignored
+[19844:22488:0529/114351.117:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
 C:\fakepath(103,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
 
-[920:22732:0529/000239.175:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
-C:\fakepath(136,1): warning X4000: use of potentially uninitialized variable (f_i_int_int_int2)
-C:\fakepath(138,1): warning X4000: use of potentially uninitialized variable (f_i_int_int_int2)
-C:\fakepath(174,1): warning X4000: use of potentially uninitialized variable (f_u_int_int_int)
-
-[920:20656:0529/000240.972:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
-C:\fakepath(166,1): warning X4000: use of potentially uninitialized variable (f_renderMipMapLevel_int)
-
-[920:19884:0529/000241.004:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
-C:\fakepath(166,1): warning X4000: use of potentially uninitialized variable (f_renderMipMapLevel_int)
-
-[920:19960:0529/000241.516:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
-C:\fakepath(382,11-39): warning X4008: floating point division by zero
-C:\fakepath(382,11-39): warning X4008: floating point division by zero
-
-[24608:16836:0529/000839.695:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[18580:21680:0529/114527.869:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame A-D1C2699EC1F8415AFC49FEEECBC84FB2 will be ignored
+[22004:22980:0529/114619.124:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

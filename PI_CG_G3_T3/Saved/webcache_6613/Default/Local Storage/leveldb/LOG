@@ -1,3 +1,18 @@
-2026/05/28-23:59:08.935 698 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
-2026/05/28-23:59:08.944 698 Recovering log #49
-2026/05/28-23:59:08.951 698 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000049.log 
+2026/05/29-11:37:04.877 1340 Creating DB C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb since it was missing.
+2026/05/29-11:37:04.935 1340 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/05/29-11:37:04.961 1340 Recovering log #49
+2026/05/29-11:37:04.968 1340 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000049.log 
+2026/05/29-11:37:04.974 1340 Delete type=2 #48
+2026/05/29-11:37:04.975 1340 Delete type=2 #50
+2026/05/29-11:38:59.912 1a68 Level-0 table #51: started
+2026/05/29-11:38:59.930 1a68 Level-0 table #51: 85509 bytes OK
+2026/05/29-11:38:59.932 1a68 Delete type=0 #49
+2026/05/29-11:41:59.910 1a68 Level-0 table #53: started
+2026/05/29-11:41:59.921 1a68 Level-0 table #53: 81961 bytes OK
+2026/05/29-11:41:59.925 1a68 Delete type=0 #50
+2026/05/29-11:44:59.911 1a68 Level-0 table #55: started
+2026/05/29-11:44:59.923 1a68 Level-0 table #55: 90606 bytes OK
+2026/05/29-11:44:59.926 1a68 Delete type=0 #52
+2026/05/29-11:45:47.962 1a68 Level-0 table #57: started
+2026/05/29-11:45:47.987 1a68 Level-0 table #57: 68639 bytes OK
+2026/05/29-11:45:47.989 1a68 Delete type=0 #54
