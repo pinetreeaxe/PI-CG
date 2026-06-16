@@ -1,7 +1,0 @@
-# Dataset YOLOv8 — Piplup Sintético
-path: C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\Dataset\Synthetic
-train: train/images
-val:   val/images
-
-nc: 1
-names: ['Piplup']

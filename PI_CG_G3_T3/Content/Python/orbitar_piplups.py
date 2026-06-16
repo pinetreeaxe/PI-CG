@@ -3,156 +3,136 @@ import math
 import os
 import shutil
 import datetime
+import subprocess
+import sys
+
+# ── Instalar dependências ────────────────────────────────────────
+def pip_install(pkg):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", pkg, "--quiet"])
+
+try:
+    from PIL import Image, ImageDraw
+except ImportError:
+    pip_install("Pillow")
+    from PIL import Image, ImageDraw
+
+try:
+    import numpy as np
+except ImportError:
+    pip_install("numpy")
+    import numpy as np
 
 # ─── CONFIGURAÇÃO ─────────────────────────────────────────────
-RAIO            = 220.0   # distância orbital (cm)
-NUM_ANGULOS     = 15      # ângulos por Piplup
-FOV_H           = 90.0    # FOV horizontal do viewport UE5 (graus)
-FRAMES_ESPERA   = 40      # frames para o viewport renderizar
-FRAMES_FICHEIRO = 15      # frames para o ficheiro ser escrito em disco
-LARGURA         = 1920
-ALTURA_RES      = 1080
-CLASSE_ID       = 0       # ID da classe no YOLO (0 = Piplup)
+CENARIO        = "01"
+RAIO           = 280.0   # piplup scale=1 — ajustado para caber o modelo inteiro
+NUM_ANGULOS    = 60      # 60 ângulos × nº piplups ≈ 180+ tentativas
+BBOX_MAX_FRAC  = 0.80    # rejeitar bbox > 80% da imagem
+BBOX_MIN_FRAC  = 0.03    # rejeitar bbox < 3% da imagem (piplup fora de campo)
+MARGEM_BORDA   = 20      # rejeitar se bbox toca nas bordas (piplup cortado)
+FOV_H          = 90.0
+FRAMES_ESPERA  = 60
+FRAMES_FICHEIRO = 90
+LARGURA        = 1920
+ALTURA_RES     = 1080
+CLASSE_ID      = 0
+ESPESSURA_BBOX = 3
 
-BASE_DIR    = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\Dataset\Synthetic\Cenario_01"
-IMAGES_DIR  = os.path.join(BASE_DIR, "images")
-LABELS_DIR  = os.path.join(BASE_DIR, "labels")
+BASE_DIR        = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\Dataset\Synthetic\Cenario_01"
+IMAGES_DIR      = os.path.join(BASE_DIR, "images")
+LABELS_DIR      = os.path.join(BASE_DIR, "labels")
 SCREENSHOTS_DIR = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PI_CG_G3_T3\Saved\Screenshots\WindowsEditor"
 # ──────────────────────────────────────────────────────────────
 
 os.makedirs(IMAGES_DIR,  exist_ok=True)
 os.makedirs(LABELS_DIR,  exist_ok=True)
 SESSAO = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+WORLD  = unreal.EditorLevelLibrary.get_editor_world()
 
 
-# ── Projeção 3D → 2D ────────────────────────────────────────────
-def projeto_3d_2d(world_pt, cam_loc, cam_rot):
-    """
-    Projeta um ponto 3D (unreal.Vector) para coordenadas de ecrã normalizadas [0,1].
-    Retorna (u, v) ou None se o ponto estiver atrás da câmara.
-    """
-    P = math.radians(cam_rot.pitch)
-    Y = math.radians(cam_rot.yaw)
+# ── Modo de renderização ─────────────────────────────────────────
+def set_viewmode(mode):
+    unreal.SystemLibrary.execute_console_command(WORLD, f"viewmode {mode}")
 
-    # Vetores da câmara (UE5: X=frente, Y=direita, Z=cima)
-    F = (math.cos(P)*math.cos(Y),  math.cos(P)*math.sin(Y),  math.sin(P))
-    R = (-math.sin(Y),              math.cos(Y),               0.0)
-    U = (-math.sin(P)*math.cos(Y), -math.sin(P)*math.sin(Y),  math.cos(P))
-
-    dx = world_pt.x - cam_loc.x
-    dy = world_pt.y - cam_loc.y
-    dz = world_pt.z - cam_loc.z
-
-    cam_x = dx*R[0] + dy*R[1] + dz*R[2]
-    cam_y = dx*U[0] + dy*U[1] + dz*U[2]
-    cam_z = dx*F[0] + dy*F[1] + dz*F[2]
-
-    if cam_z <= 0.001:
-        return None   # ponto atrás da câmara
-
-    half_h_fov = math.tan(math.radians(FOV_H / 2.0))
-    half_v_fov = half_h_fov * (ALTURA_RES / LARGURA)
-
-    nx =  cam_x / (cam_z * half_h_fov)   # [-1, 1]
-    ny = -cam_y / (cam_z * half_v_fov)   # [-1, 1]  (Y invertido para espaço de imagem)
-
-    u = (nx + 1.0) / 2.0
-    v = (ny + 1.0) / 2.0
-    return (u, v)
+def set_black_environment(ativo):
+    val = 0 if ativo else 1
+    for flag in ["Atmosphere", "Fog", "Clouds", "Sky", "DirectionalLights",
+                 "PointLights", "SpotLights", "SkyLighting"]:
+        unreal.SystemLibrary.execute_console_command(WORLD, f"show {flag} {val}")
 
 
-def calcular_bbox_yolo(piplup, cam_loc, cam_rot):
-    """
-    Projeta os 8 cantos do bounding box 3D do Piplup e devolve
-    (x_centro, y_centro, largura, altura) em coordenadas normalizadas YOLO.
-    Retorna None se o modelo estiver fora do ecrã.
-    """
-    origin, extent = piplup.get_actor_bounds(False)
+# ── Visibilidade de Piplups ──────────────────────────────────────
+def focar_piplup(piplup_alvo, todos_pips):
+    """Esconde todos os Piplups excepto o alvo — garante 1 só por foto."""
+    for pip in todos_pips:
+        pip.set_is_temporarily_hidden_in_editor(pip != piplup_alvo)
 
-    # 8 cantos do bounding box 3D (AABB world-space)
-    cantos = [
-        unreal.Vector(origin.x + sx*extent.x,
-                      origin.y + sy*extent.y,
-                      origin.z + sz*extent.z)
-        for sx in (-1, 1)
-        for sy in (-1, 1)
-        for sz in (-1, 1)
-    ]
+def restaurar_todos(todos_pips):
+    for pip in todos_pips:
+        pip.set_is_temporarily_hidden_in_editor(False)
 
-    pts = [projeto_3d_2d(c, cam_loc, cam_rot) for c in cantos]
-    pts = [p for p in pts if p is not None]
 
-    if not pts:
+# ── Processamento de imagem com PIL ─────────────────────────────
+def calcular_bbox_pixels(img_path):
+    """Detecta pixeis vermelhos do Piplup: R>=240, G<130, B<120."""
+    try:
+        img = Image.open(img_path).convert("RGB")
+        arr = np.array(img)
+        mask = (arr[:, :, 0] >= 240) & (arr[:, :, 1] < 130) & (arr[:, :, 2] < 120)
+        rows = np.where(mask.any(axis=1))[0]
+        cols = np.where(mask.any(axis=0))[0]
+        if len(rows) == 0 or len(cols) == 0:
+            return None
+        return (int(cols[0]), int(rows[0]), int(cols[-1]), int(rows[-1]))
+    except Exception as e:
+        unreal.log_warning(f"Erro bbox pixels: {e}")
         return None
 
-    us = [p[0] for p in pts]
-    vs = [p[1] for p in pts]
 
-    u_min, u_max = max(0.0, min(us)), min(1.0, max(us))
-    v_min, v_max = max(0.0, min(vs)), min(1.0, max(vs))
+def validar_bbox(bbox_px):
+    """Retorna (ok, motivo). Rejeita se cortado, demasiado pequeno ou demasiado grande."""
+    x_min, y_min, x_max, y_max = bbox_px
+    w_frac = (x_max - x_min) / LARGURA
+    h_frac = (y_max - y_min) / ALTURA_RES
 
-    if u_max <= u_min or v_max <= v_min:
-        return None
+    if (x_min < MARGEM_BORDA or y_min < MARGEM_BORDA or
+            x_max > LARGURA - MARGEM_BORDA or y_max > ALTURA_RES - MARGEM_BORDA):
+        return False, f"Piplup cortado ({x_min},{y_min},{x_max},{y_max})"
 
-    x_c = (u_min + u_max) / 2.0
-    y_c = (v_min + v_max) / 2.0
-    w   = u_max - u_min
-    h   = v_max - v_min
+    if w_frac < BBOX_MIN_FRAC or h_frac < BBOX_MIN_FRAC:
+        return False, f"Piplup demasiado pequeno ({w_frac:.1%}x{h_frac:.1%})"
 
+    if w_frac > BBOX_MAX_FRAC or h_frac > BBOX_MAX_FRAC:
+        return False, f"Bbox demasiado grande ({w_frac:.1%}x{h_frac:.1%})"
+
+    return True, "ok"
+
+
+def desenhar_bbox_vermelha(img_path, bbox_px):
+    try:
+        img = Image.open(img_path).convert("RGB")
+        draw = ImageDraw.Draw(img)
+        draw.rectangle(list(bbox_px), outline=(255, 0, 0), width=ESPESSURA_BBOX)
+        img.save(img_path)
+        unreal.log(f"    -> bbox: ({bbox_px[0]},{bbox_px[1]})-({bbox_px[2]},{bbox_px[3]})")
+    except Exception as e:
+        unreal.log_warning(f"Erro ao desenhar bbox: {e}")
+
+
+def bbox_pixels_para_yolo(bbox_px):
+    x_min, y_min, x_max, y_max = bbox_px
+    x_c = ((x_min + x_max) / 2.0) / LARGURA
+    y_c = ((y_min + y_max) / 2.0) / ALTURA_RES
+    w   = (x_max - x_min) / LARGURA
+    h   = (y_max - y_min) / ALTURA_RES
     return (x_c, y_c, w, h)
 
 
-def guardar_anotacao(fname, bbox):
-    """Guarda ficheiro .txt no formato YOLO na pasta labels/."""
+def guardar_anotacao(fname, bbox_yolo):
     path = os.path.join(LABELS_DIR, fname + ".txt")
-    x_c, y_c, w, h = bbox
+    x_c, y_c, w, h = bbox_yolo
     with open(path, "w") as f:
         f.write(f"{CLASSE_ID} {x_c:.6f} {y_c:.6f} {w:.6f} {h:.6f}\n")
-    unreal.log(f"    -> anotacao: classe={CLASSE_ID} cx={x_c:.3f} cy={y_c:.3f} w={w:.3f} h={h:.3f}")
-
-
-# ── Calcular posições de câmara ─────────────────────────────────
-def calcular_posicoes():
-    todos = unreal.EditorLevelLibrary.get_all_level_actors()
-    pips  = sorted([a for a in todos if "Piplup" in a.get_actor_label()],
-                   key=lambda a: a.get_actor_label())
-
-    if not pips:
-        unreal.log_warning("Nenhum actor 'Piplup' encontrado!")
-        return []
-
-    unreal.log(f"Piplups detetados: {[p.get_actor_label() for p in pips]}")
-    posicoes = []
-
-    for piplup in pips:
-        c    = piplup.get_actor_location()
-        nome = piplup.get_actor_label()
-
-        origin, extent = piplup.get_actor_bounds(False)
-        centro = origin  # centro geométrico real do modelo
-
-        unreal.log(f"  {nome}: centro=({centro.x:.0f},{centro.y:.0f},{centro.z:.0f})")
-
-        for j in range(NUM_ANGULOS):
-            a = math.radians(j * 360.0 / NUM_ANGULOS)
-
-            cam_loc = unreal.Vector(
-                centro.x + RAIO * math.cos(a),
-                centro.y + RAIO * math.sin(a),
-                centro.z
-            )
-            cam_rot = unreal.MathLibrary.find_look_at_rotation(cam_loc, centro)
-            fname   = f"Cenario01_{nome}_ang{j+1:02d}_{SESSAO}"
-
-            posicoes.append({
-                "loc":     cam_loc,
-                "rot":     cam_rot,
-                "fname":   fname,
-                "nome":    nome,
-                "piplup":  piplup,
-            })
-
-    return posicoes
+    unreal.log(f"    -> label: cx={x_c:.3f} cy={y_c:.3f} w={w:.3f} h={h:.3f}")
 
 
 def mover_imagem(fname):
@@ -161,24 +141,75 @@ def mover_imagem(fname):
     try:
         if os.path.exists(src):
             shutil.move(src, dst)
-            unreal.log(f"    -> imagem guardada: images/{fname}.png")
         else:
-            unreal.log_warning(f"    Imagem nao encontrada: {src}")
+            unreal.log_warning(f"    Imagem não encontrada: {src}")
     except Exception as e:
         unreal.log_warning(f"    Erro ao mover imagem: {e}")
 
 
-# ── Máquina de estados por tick ─────────────────────────────────
-posicoes  = calcular_posicoes()
+# ── Calcular posições de câmara ─────────────────────────────────
+def calcular_posicoes():
+    todos = unreal.EditorLevelLibrary.get_all_level_actors()
+    pips = sorted(
+        [a for a in todos if "Piplup" in a.get_actor_label() and "Extra" not in a.get_actor_label()],
+        key=lambda a: a.get_actor_label()
+    )
+
+    if not pips:
+        unreal.log_warning("Nenhum actor 'Piplup' encontrado!")
+        return [], []
+
+    unreal.log(f"Piplups encontrados: {[p.get_actor_label() for p in pips]}")
+
+    posicoes = []
+    for piplup in pips:
+        nome = piplup.get_actor_label()
+        origin, extent = piplup.get_actor_bounds(False)
+        centro = origin
+        unreal.log(f"  {nome}: centro=({centro.x:.0f},{centro.y:.0f},{centro.z:.0f})")
+
+        for j in range(NUM_ANGULOS):
+            a = math.radians(j * 360.0 / NUM_ANGULOS)
+            cam_loc = unreal.Vector(
+                centro.x + RAIO * math.cos(a),
+                centro.y + RAIO * math.sin(a),
+                centro.z
+            )
+            cam_rot = unreal.MathLibrary.find_look_at_rotation(cam_loc, centro)
+            fname   = f"Cenario{CENARIO}_{nome}_ang{j+1:02d}_{SESSAO}"
+            posicoes.append({
+                "loc":    cam_loc,
+                "rot":    cam_rot,
+                "fname":  fname,
+                "nome":   nome,
+                "piplup": piplup,
+            })
+
+    return posicoes, pips
+
+
+# ── Inicialização ────────────────────────────────────────────────
+set_black_environment(True)
+set_viewmode("unlit")
+
+posicoes, todos_piplups_cena = calcular_posicoes()
 total     = len(posicoes)
 estado    = {"i": 0, "espera": 0, "fase": "mover"}
 cb_handle = [None]
+stats     = {"ok": 0, "rejeitadas": 0}
 
 
+# ── Máquina de estados por tick ─────────────────────────────────
 def on_tick(dt):
     i = estado["i"]
+
     if i >= total:
-        unreal.log(f"Concluido! {total} imagens em images/  |  {total} anotacoes em labels/")
+        restaurar_todos(todos_piplups_cena)
+        set_viewmode("lit")
+        set_black_environment(False)
+        unreal.log(
+            f"Concluido! {stats['ok']} imagens validas | {stats['rejeitadas']} rejeitadas"
+        )
         unreal.unregister_slate_pre_tick_callback(cb_handle[0])
         return
 
@@ -186,6 +217,11 @@ def on_tick(dt):
     fase = estado["fase"]
 
     if fase == "mover":
+        # Quando muda de Piplup, esconder os outros
+        if i == 0 or posicoes[i]["piplup"] != posicoes[i - 1]["piplup"]:
+            focar_piplup(p["piplup"], todos_piplups_cena)
+            unreal.log(f"  Focando: {p['nome']} (outros Piplups escondidos)")
+
         unreal.EditorLevelLibrary.set_level_viewport_camera_info(p["loc"], p["rot"])
         estado["espera"] = 0
         estado["fase"]   = "esperar"
@@ -205,20 +241,37 @@ def on_tick(dt):
         if estado["espera"] >= FRAMES_FICHEIRO:
             mover_imagem(p["fname"])
 
-            # Calcular e guardar anotação YOLO
-            bbox = calcular_bbox_yolo(p["piplup"], p["loc"], p["rot"])
-            if bbox:
-                guardar_anotacao(p["fname"], bbox)
-            else:
-                unreal.log_warning(f"    Piplup fora do ecra — anotacao ignorada")
+            img_path = os.path.join(IMAGES_DIR, p["fname"] + ".png")
+            bbox_px = calcular_bbox_pixels(img_path)
 
-            unreal.log(f"  [{i+1}/{total}] {p['nome']} ang{(i % NUM_ANGULOS)+1:02d}")
+            if bbox_px is None:
+                unreal.log_warning(f"    Sem pixeis vermelhos — descartada")
+                stats["rejeitadas"] += 1
+                if os.path.exists(img_path):
+                    os.remove(img_path)
+            else:
+                valida, motivo = validar_bbox(bbox_px)
+                if not valida:
+                    unreal.log_warning(f"    Rejeitada: {motivo}")
+                    stats["rejeitadas"] += 1
+                    if os.path.exists(img_path):
+                        os.remove(img_path)
+                else:
+                    # Imagem limpa (sem bbox desenhada) — YOLO treina com imagens originais
+                    guardar_anotacao(p["fname"], bbox_pixels_para_yolo(bbox_px))
+                    stats["ok"] += 1
+
+            unreal.log(f"  [{i+1}/{total}] {p['nome']} ang{(i % NUM_ANGULOS)+1:02d} | ok={stats['ok']} rej={stats['rejeitadas']}")
             estado["i"]   += 1
             estado["fase"] = "mover"
 
 
 if total > 0:
-    unreal.log(f"A iniciar: {total} fotos | {total//NUM_ANGULOS} Piplups x {NUM_ANGULOS} angulos | {SESSAO}")
-    unreal.log(f"Imagens  -> {IMAGES_DIR}")
-    unreal.log(f"Labels   -> {LABELS_DIR}")
+    unreal.log(f"=== CENARIO {CENARIO} ===")
+    unreal.log(f"  {len(todos_piplups_cena)} Piplups x {NUM_ANGULOS} angulos = {total} tentativas")
+    unreal.log(f"  Raio: {RAIO}cm | Margem borda: {MARGEM_BORDA}px | Bbox min: {BBOX_MIN_FRAC:.0%}")
+    unreal.log(f"  Imagens -> {IMAGES_DIR}")
+    unreal.log(f"  Labels  -> {LABELS_DIR}")
     cb_handle[0] = unreal.register_slate_pre_tick_callback(on_tick)
+else:
+    unreal.log_warning("Nenhuma posição calculada — verifica se há actors 'Piplup' na cena.")
