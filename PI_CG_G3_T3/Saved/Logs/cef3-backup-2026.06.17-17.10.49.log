@@ -1,0 +1,36 @@
+[18880:18756:0617/174823.306:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[18880:11200:0617/174823.387:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[18880:18756:0617/174823.431:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[11828:13576:0617/174828.274:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-3955A563D25562C3AE85DFBA2A8586F8 will be ignored
+[2572:6436:0617/174829.587:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 6-045244F16067EC07D4C5495F66FECDF0 will be ignored
+[18880:18756:0617/174832.239:ERROR:device_event_log_impl.cc(196)] [17:48:32.238] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[3280:22580:0617/175105.673:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[3280:19772:0617/175105.739:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[3280:22580:0617/175105.785:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[3280:22580:0617/175120.081:ERROR:device_event_log_impl.cc(196)] [17:51:19.787] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[19280:24372:0617/175122.749:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-C961F2C345ECE4529F1C7160C71E4A63 will be ignored
+[4432:19832:0617/175123.552:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 6-35B03F9514F8C4A61CF2F91585C9CBDE will be ignored
+[23708:24660:0617/175126.042:VERBOSE1:video_capture_oracle.cc(91)] Capture size auto-throttling is now enabled.
+[23708:24660:0617/175126.042:VERBOSE1:video_capture_oracle.cc(120)] Capture size auto-throttling is now disabled.
+[23708:24660:0617/175126.042:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 1x1
+[23708:24660:0617/175126.042:VERBOSE1:capture_resolution_chooser.cc(157)] Recomputed capture size from 640x360 to 1x1 (100% of ideal size)
+[23708:24660:0617/175126.146:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 1x1
+[23708:24660:0617/175126.176:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 1x1
+[23708:24660:0617/175126.293:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 990x557
+[23708:24660:0617/175126.293:VERBOSE1:capture_resolution_chooser.cc(157)] Recomputed capture size from 1x1 to 990x557 (100% of ideal size)
+[23708:24660:0617/175126.985:VERBOSE1:video_capture_oracle.cc(91)] Capture size auto-throttling is now enabled.
+[23708:24660:0617/175126.985:VERBOSE1:video_capture_oracle.cc(120)] Capture size auto-throttling is now disabled.
+[23708:24660:0617/175126.985:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 990x557
+[23708:24660:0617/175126.985:VERBOSE1:capture_resolution_chooser.cc(157)] Recomputed capture size from 640x360 to 990x557 (100% of ideal size)
+[17936:9332:0617/175126.988:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 9-050684F9FA4646B4519271DCC0A7FBBF will be ignored
+[23708:24660:0617/175127.604:VERBOSE1:capture_resolution_chooser.cc(205)] Recomputed snapped frame sizes: 990x557
+[18880:18756:0617/175131.281:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[3280:22580:0617/175132.476:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[6600:6096:0617/175155.864:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[6600:7308:0617/175155.938:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[6600:6096:0617/175155.981:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[6600:6096:0617/175203.731:ERROR:device_event_log_impl.cc(196)] [17:52:03.460] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[22560:24456:0617/175204.381:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-8F4E85FEC1B9CFCEE95AE199A84BCC7D will be ignored
+[20892:24160:0617/175205.409:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 6-F154B6686EE89FAAB6C0FA23B21539CC will be ignored
+[15320:13196:0617/175321.523:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame A-75F407BD89E7D5A2C77943B85C39275D will be ignored
+[6600:6096:0617/181049.473:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
