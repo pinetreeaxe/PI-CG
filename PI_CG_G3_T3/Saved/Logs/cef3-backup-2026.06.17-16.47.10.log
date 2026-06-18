@@ -1,9 +1,0 @@
-[24788:22420:0617/174354.151:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
-[24788:2852:0617/174354.470:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
-[24788:22420:0617/174354.601:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
-[24788:22420:0617/174405.386:ERROR:device_event_log_impl.cc(196)] [17:44:05.375] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
-[7704:16212:0617/174406.195:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-2FAB79A9C06F6EE61F6092EDCC563F8F will be ignored
-[20136:3996:0617/174414.623:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 8-19D65D9518640CB9C9849A585F18422B will be ignored
-[24788:22420:0617/174652.994:ERROR:menu_runner_views_aura.cc(24)] Window handle is required for default OSR context menu.
-[24788:22420:0617/174652.994:ERROR:menu_manager.cc(198)] Default context menu implementation is not available; canceling the menu
-[24788:22420:0617/174710.216:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
