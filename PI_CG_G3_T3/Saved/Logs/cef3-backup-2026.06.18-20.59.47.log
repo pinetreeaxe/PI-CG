@@ -1,0 +1,8 @@
+[23536:23944:0618/212300.442:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[23536:8288:0618/212300.504:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[23536:23944:0618/212300.547:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[23536:23944:0618/212306.335:ERROR:device_event_log_impl.cc(196)] [21:23:06.025] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[14288:3692:0618/212306.997:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-B8EBD448287AB24D4D071C63467DFC54 will be ignored
+[23536:21572:0618/213429.952:ERROR:cast_crl.cc(443)] CRL - Verification failed.
+[23536:23944:0618/213616.022:ERROR:device_event_log_impl.cc(196)] [21:36:15.935] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[23536:21572:0618/215947.660:ERROR:cast_crl.cc(443)] CRL - Verification failed.

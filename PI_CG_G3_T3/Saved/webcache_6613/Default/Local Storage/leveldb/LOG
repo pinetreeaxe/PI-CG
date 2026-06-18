@@ -1,0 +1,33 @@
+2026/06/18-22:47:33.545 64c0 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/06/18-22:47:33.555 64c0 Recovering log #3
+2026/06/18-22:47:33.560 64c0 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000003.log 
+2026/06/18-23:56:07.023 68f0 Level-0 table #5: started
+2026/06/18-23:56:07.036 68f0 Level-0 table #5: 61178 bytes OK
+2026/06/18-23:56:07.040 68f0 Delete type=0 #3
+2026/06/19-00:02:17.026 68f0 Level-0 table #7: started
+2026/06/19-00:02:17.034 68f0 Level-0 table #7: 71758 bytes OK
+2026/06/19-00:02:17.037 68f0 Delete type=0 #4
+2026/06/19-00:02:39.337 68f0 Level-0 table #9: started
+2026/06/19-00:02:39.344 68f0 Level-0 table #9: 77798 bytes OK
+2026/06/19-00:02:39.346 68f0 Delete type=0 #6
+2026/06/19-00:05:07.022 68f0 Level-0 table #11: started
+2026/06/19-00:05:07.030 68f0 Level-0 table #11: 85578 bytes OK
+2026/06/19-00:05:07.031 68f0 Delete type=0 #8
+2026/06/19-00:07:07.022 68f0 Level-0 table #13: started
+2026/06/19-00:07:07.029 68f0 Level-0 table #13: 62895 bytes OK
+2026/06/19-00:07:07.033 68f0 Delete type=0 #10
+2026/06/19-00:09:24.863 68f0 Level-0 table #15: started
+2026/06/19-00:09:24.870 68f0 Level-0 table #15: 68079 bytes OK
+2026/06/19-00:09:24.874 68f0 Delete type=0 #12
+2026/06/19-00:09:24.875 68f0 Compacting 4@0 + 1@1 files
+2026/06/19-00:09:24.884 68f0 Generated table #16@0: 4 keys, 34707 bytes
+2026/06/19-00:09:24.885 68f0 Compacted 4@0 + 1@1 files => 34707 bytes
+2026/06/19-00:09:24.885 68f0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/19-00:09:24.887 68f0 Delete type=2 #7
+2026/06/19-00:09:24.887 68f0 Delete type=2 #9
+2026/06/19-00:09:24.887 68f0 Delete type=2 #11
+2026/06/19-00:09:24.888 68f0 Delete type=2 #13
+2026/06/19-00:09:24.888 68f0 Delete type=2 #15
+2026/06/19-00:11:07.021 68f0 Level-0 table #18: started
+2026/06/19-00:11:07.030 68f0 Level-0 table #18: 71779 bytes OK
+2026/06/19-00:11:07.032 68f0 Delete type=0 #14
