@@ -24,7 +24,7 @@ except ImportError:
 
 # ─── CONFIGURAÇÃO ─────────────────────────────────────────────
 CENARIO        = "03"
-RAIO           = 480.0   # piplup scale=1 — ajustado para caber o modelo inteiro
+RAIO           = 480.0
 NUM_ANGULOS    = 60
 BBOX_MAX_FRAC  = 0.80
 BBOX_MIN_FRAC  = 0.03
@@ -36,6 +36,10 @@ LARGURA        = 1920
 ALTURA_RES     = 1080
 CLASSE_ID      = 0
 ESPESSURA_BBOX = 3
+
+# Paths dos materiais
+MAT_NORMAL_PATH   = "/Game/Piplup/3DModel"
+MAT_EMISSIVE_PATH = "/Game/Piplup/3DModel_Emissive"
 
 BASE_DIR        = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\Dataset\Synthetic\Cenario_03"
 IMAGES_DIR      = os.path.join(BASE_DIR, "images")
@@ -51,7 +55,6 @@ WORLD  = unreal.EditorLevelLibrary.get_editor_world()
 
 # ── Modo de renderização ─────────────────────────────────────────
 def set_viewmode(mode):
-    """Muda o viewport: 'unlit' = só base color/emissive | 'lit' = normal."""
     unreal.SystemLibrary.execute_console_command(WORLD, f"viewmode {mode}")
 
 def set_black_environment(ativo):
@@ -59,6 +62,31 @@ def set_black_environment(ativo):
     for flag in ["Atmosphere", "Fog", "Clouds", "Sky", "DirectionalLights",
                  "PointLights", "SpotLights", "SkyLighting"]:
         unreal.SystemLibrary.execute_console_command(WORLD, f"show {flag} {val}")
+
+
+# ── Materiais ────────────────────────────────────────────────────
+_mat_normal   = unreal.load_asset(MAT_NORMAL_PATH)
+_mat_emissive = unreal.load_asset(MAT_EMISSIVE_PATH)
+
+if _mat_normal is None:
+    unreal.log_warning(f"[MAT] ERRO: material normal nao encontrado: {MAT_NORMAL_PATH}")
+if _mat_emissive is None:
+    unreal.log_warning(f"[MAT] ERRO: material emissivo nao encontrado: {MAT_EMISSIVE_PATH}")
+
+def aplicar_material(piplup_actor, mat):
+    if mat is None:
+        return
+    comps = piplup_actor.get_components_by_class(unreal.StaticMeshComponent)
+    for comp in comps:
+        for slot in range(comp.get_num_materials()):
+            comp.set_material(slot, mat)
+    if not comps:
+        try:
+            comp = piplup_actor.static_mesh_component
+            for slot in range(comp.get_num_materials()):
+                comp.set_material(slot, mat)
+        except Exception as e:
+            unreal.log_warning(f"[MAT] fallback falhou: {e}")
 
 
 # ── Visibilidade de Piplups ──────────────────────────────────────
@@ -69,10 +97,12 @@ def focar_piplup(piplup_alvo, todos_pips):
 def restaurar_todos(todos_pips):
     for pip in todos_pips:
         pip.set_is_temporarily_hidden_in_editor(False)
+        aplicar_material(pip, _mat_normal)
 
 
 # ── Processamento de imagem com PIL ─────────────────────────────
 def calcular_bbox_pixels(img_path):
+    """Detecta pixeis vermelhos do emissivo: R>=240, G<130, B<120."""
     try:
         img = Image.open(img_path).convert("RGB")
         arr = np.array(img)
@@ -91,25 +121,18 @@ def validar_bbox(bbox_px):
     x_min, y_min, x_max, y_max = bbox_px
     w_frac = (x_max - x_min) / LARGURA
     h_frac = (y_max - y_min) / ALTURA_RES
+
     if (x_min < MARGEM_BORDA or y_min < MARGEM_BORDA or
             x_max > LARGURA - MARGEM_BORDA or y_max > ALTURA_RES - MARGEM_BORDA):
         return False, f"Piplup cortado ({x_min},{y_min},{x_max},{y_max})"
+
     if w_frac < BBOX_MIN_FRAC or h_frac < BBOX_MIN_FRAC:
         return False, f"Piplup demasiado pequeno ({w_frac:.1%}x{h_frac:.1%})"
+
     if w_frac > BBOX_MAX_FRAC or h_frac > BBOX_MAX_FRAC:
         return False, f"Bbox demasiado grande ({w_frac:.1%}x{h_frac:.1%})"
+
     return True, "ok"
-
-
-def desenhar_bbox_vermelha(img_path, bbox_px):
-    try:
-        img = Image.open(img_path).convert("RGB")
-        draw = ImageDraw.Draw(img)
-        draw.rectangle(list(bbox_px), outline=(255, 0, 0), width=ESPESSURA_BBOX)
-        img.save(img_path)
-        unreal.log(f"    -> bbox: ({bbox_px[0]},{bbox_px[1]})-({bbox_px[2]},{bbox_px[3]})")
-    except Exception as e:
-        unreal.log_warning(f"Erro ao desenhar bbox: {e}")
 
 
 def bbox_pixels_para_yolo(bbox_px):
@@ -136,7 +159,7 @@ def mover_imagem(fname):
         if os.path.exists(src):
             shutil.move(src, dst)
         else:
-            unreal.log_warning(f"    Imagem não encontrada: {src}")
+            unreal.log_warning(f"    Imagem nao encontrada: {src}")
     except Exception as e:
         unreal.log_warning(f"    Erro ao mover imagem: {e}")
 
@@ -148,16 +171,20 @@ def calcular_posicoes():
         [a for a in todos if "Piplup" in a.get_actor_label() and "Extra" not in a.get_actor_label()],
         key=lambda a: a.get_actor_label()
     )
+
     if not pips:
         unreal.log_warning("Nenhum actor 'Piplup' encontrado!")
         return [], []
+
     unreal.log(f"Piplups encontrados: {[p.get_actor_label() for p in pips]}")
+
     posicoes = []
     for piplup in pips:
         nome = piplup.get_actor_label()
         origin, extent = piplup.get_actor_bounds(False)
         centro = origin
         unreal.log(f"  {nome}: centro=({centro.x:.0f},{centro.y:.0f},{centro.z:.0f})")
+
         for j in range(NUM_ANGULOS):
             a = math.radians(j * 360.0 / NUM_ANGULOS)
             cam_loc = unreal.Vector(
@@ -167,25 +194,29 @@ def calcular_posicoes():
             )
             cam_rot = unreal.MathLibrary.find_look_at_rotation(cam_loc, centro)
             fname   = f"Cenario{CENARIO}_{nome}_ang{j+1:02d}_{SESSAO}"
-            posicoes.append({"loc": cam_loc, "rot": cam_rot, "fname": fname,
-                             "nome": nome, "piplup": piplup})
+            posicoes.append({
+                "loc":    cam_loc,
+                "rot":    cam_rot,
+                "fname":  fname,
+                "nome":   nome,
+                "piplup": piplup,
+            })
+
     return posicoes, pips
 
 
 # ── Inicialização ────────────────────────────────────────────────
-set_black_environment(True)
-set_viewmode("unlit")
-
 posicoes, todos_piplups_cena = calcular_posicoes()
-total     = len(posicoes)
-estado    = {"i": 0, "espera": 0, "fase": "mover"}
+total  = len(posicoes)
+estado = {"i": 0, "espera": 0, "fase": "mover", "bbox_emissivo": None}
 cb_handle = [None]
-stats     = {"ok": 0, "rejeitadas": 0}
+stats  = {"ok": 0, "rejeitadas": 0}
 
 
 # ── Máquina de estados por tick ─────────────────────────────────
 def on_tick(dt):
     i = estado["i"]
+
     if i >= total:
         restaurar_todos(todos_piplups_cena)
         set_viewmode("lit")
@@ -201,40 +232,77 @@ def on_tick(dt):
         if i == 0 or posicoes[i]["piplup"] != posicoes[i - 1]["piplup"]:
             focar_piplup(p["piplup"], todos_piplups_cena)
             unreal.log(f"  Focando: {p['nome']} (outros Piplups escondidos)")
+
+        aplicar_material(p["piplup"], _mat_emissive)
+        set_black_environment(True)
+        set_viewmode("unlit")
         unreal.EditorLevelLibrary.set_level_viewport_camera_info(p["loc"], p["rot"])
         estado["espera"] = 0
-        estado["fase"]   = "esperar"
+        estado["fase"]   = "esperar_emissivo"
 
-    elif fase == "esperar":
+    elif fase == "esperar_emissivo":
         estado["espera"] += 1
         if estado["espera"] >= FRAMES_ESPERA:
-            estado["fase"] = "capturar"
+            estado["fase"] = "capturar_emissivo"
 
-    elif fase == "capturar":
-        unreal.AutomationLibrary.take_high_res_screenshot(LARGURA, ALTURA_RES, p["fname"])
+    elif fase == "capturar_emissivo":
+        fname_em = p["fname"] + "_em"
+        unreal.AutomationLibrary.take_high_res_screenshot(LARGURA, ALTURA_RES, fname_em)
         estado["espera"] = 0
-        estado["fase"]   = "mover_ficheiro"
+        estado["fase"]   = "processar_emissivo"
 
-    elif fase == "mover_ficheiro":
+    elif fase == "processar_emissivo":
         estado["espera"] += 1
         if estado["espera"] >= FRAMES_FICHEIRO:
-            mover_imagem(p["fname"])
-            img_path = os.path.join(IMAGES_DIR, p["fname"] + ".png")
-            bbox_px = calcular_bbox_pixels(img_path)
+            fname_em = p["fname"] + "_em"
+            mover_imagem(fname_em)
+            img_em = os.path.join(IMAGES_DIR, fname_em + ".png")
+
+            bbox_px = calcular_bbox_pixels(img_em)
+
+            if os.path.exists(img_em):
+                os.remove(img_em)
+
             if bbox_px is None:
                 unreal.log_warning(f"    Sem pixeis vermelhos — descartada")
                 stats["rejeitadas"] += 1
-                if os.path.exists(img_path): os.remove(img_path)
-            else:
-                valida, motivo = validar_bbox(bbox_px)
-                if not valida:
-                    unreal.log_warning(f"    Rejeitada: {motivo}")
-                    stats["rejeitadas"] += 1
-                    if os.path.exists(img_path): os.remove(img_path)
-                else:
-                    # Imagem limpa (sem bbox desenhada) — YOLO treina com imagens originais
-                    guardar_anotacao(p["fname"], bbox_pixels_para_yolo(bbox_px))
-                    stats["ok"] += 1
+                unreal.log(f"  [{i+1}/{total}] {p['nome']} ang{(i % NUM_ANGULOS)+1:02d} | ok={stats['ok']} rej={stats['rejeitadas']}")
+                estado["i"]   += 1
+                estado["fase"] = "mover"
+                return
+
+            valida, motivo = validar_bbox(bbox_px)
+            if not valida:
+                unreal.log_warning(f"    Rejeitada: {motivo}")
+                stats["rejeitadas"] += 1
+                unreal.log(f"  [{i+1}/{total}] {p['nome']} ang{(i % NUM_ANGULOS)+1:02d} | ok={stats['ok']} rej={stats['rejeitadas']}")
+                estado["i"]   += 1
+                estado["fase"] = "mover"
+                return
+
+            estado["bbox_emissivo"] = bbox_px
+            aplicar_material(p["piplup"], _mat_normal)
+            set_black_environment(False)
+            set_viewmode("lit")
+            estado["espera"] = 0
+            estado["fase"]   = "esperar_normal"
+
+    elif fase == "esperar_normal":
+        estado["espera"] += 1
+        if estado["espera"] >= FRAMES_ESPERA:
+            estado["fase"] = "capturar_normal"
+
+    elif fase == "capturar_normal":
+        unreal.AutomationLibrary.take_high_res_screenshot(LARGURA, ALTURA_RES, p["fname"])
+        estado["espera"] = 0
+        estado["fase"]   = "processar_normal"
+
+    elif fase == "processar_normal":
+        estado["espera"] += 1
+        if estado["espera"] >= FRAMES_FICHEIRO:
+            mover_imagem(p["fname"])
+            guardar_anotacao(p["fname"], bbox_pixels_para_yolo(estado["bbox_emissivo"]))
+            stats["ok"] += 1
             unreal.log(f"  [{i+1}/{total}] {p['nome']} ang{(i % NUM_ANGULOS)+1:02d} | ok={stats['ok']} rej={stats['rejeitadas']}")
             estado["i"]   += 1
             estado["fase"] = "mover"
@@ -248,4 +316,4 @@ if total > 0:
     unreal.log(f"  Labels  -> {LABELS_DIR}")
     cb_handle[0] = unreal.register_slate_pre_tick_callback(on_tick)
 else:
-    unreal.log_warning("Nenhuma posição calculada — verifica se há actors 'Piplup' na cena.")
+    unreal.log_warning("Nenhuma posicao calculada — verifica se ha actors 'Piplup' na cena.")
