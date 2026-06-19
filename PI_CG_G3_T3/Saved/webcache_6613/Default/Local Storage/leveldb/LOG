@@ -1,33 +1,69 @@
-2026/06/18-22:47:33.545 64c0 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
-2026/06/18-22:47:33.555 64c0 Recovering log #3
-2026/06/18-22:47:33.560 64c0 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000003.log 
-2026/06/18-23:56:07.023 68f0 Level-0 table #5: started
-2026/06/18-23:56:07.036 68f0 Level-0 table #5: 61178 bytes OK
-2026/06/18-23:56:07.040 68f0 Delete type=0 #3
-2026/06/19-00:02:17.026 68f0 Level-0 table #7: started
-2026/06/19-00:02:17.034 68f0 Level-0 table #7: 71758 bytes OK
-2026/06/19-00:02:17.037 68f0 Delete type=0 #4
-2026/06/19-00:02:39.337 68f0 Level-0 table #9: started
-2026/06/19-00:02:39.344 68f0 Level-0 table #9: 77798 bytes OK
-2026/06/19-00:02:39.346 68f0 Delete type=0 #6
-2026/06/19-00:05:07.022 68f0 Level-0 table #11: started
-2026/06/19-00:05:07.030 68f0 Level-0 table #11: 85578 bytes OK
-2026/06/19-00:05:07.031 68f0 Delete type=0 #8
-2026/06/19-00:07:07.022 68f0 Level-0 table #13: started
-2026/06/19-00:07:07.029 68f0 Level-0 table #13: 62895 bytes OK
-2026/06/19-00:07:07.033 68f0 Delete type=0 #10
-2026/06/19-00:09:24.863 68f0 Level-0 table #15: started
-2026/06/19-00:09:24.870 68f0 Level-0 table #15: 68079 bytes OK
-2026/06/19-00:09:24.874 68f0 Delete type=0 #12
-2026/06/19-00:09:24.875 68f0 Compacting 4@0 + 1@1 files
-2026/06/19-00:09:24.884 68f0 Generated table #16@0: 4 keys, 34707 bytes
-2026/06/19-00:09:24.885 68f0 Compacted 4@0 + 1@1 files => 34707 bytes
-2026/06/19-00:09:24.885 68f0 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/06/19-00:09:24.887 68f0 Delete type=2 #7
-2026/06/19-00:09:24.887 68f0 Delete type=2 #9
-2026/06/19-00:09:24.887 68f0 Delete type=2 #11
-2026/06/19-00:09:24.888 68f0 Delete type=2 #13
-2026/06/19-00:09:24.888 68f0 Delete type=2 #15
-2026/06/19-00:11:07.021 68f0 Level-0 table #18: started
-2026/06/19-00:11:07.030 68f0 Level-0 table #18: 71779 bytes OK
-2026/06/19-00:11:07.032 68f0 Delete type=0 #14
+2026/06/19-01:27:47.950 5df0 Reusing MANIFEST C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/MANIFEST-000001
+2026/06/19-01:27:47.960 5df0 Recovering log #20
+2026/06/19-01:27:47.965 5df0 Reusing old log C:\Users\joaom\Desktop\Uni\8º ano\2º Semestre\Projeto em Computação Gráfica e Visão por Computador\PI-CG\PI_CG_G3_T3\Saved\webcache_6613\Default\Local Storage\leveldb/000020.log 
+2026/06/19-01:28:53.508 6bdc Level-0 table #24: started
+2026/06/19-01:28:53.517 6bdc Level-0 table #24: 72982 bytes OK
+2026/06/19-01:28:53.519 6bdc Delete type=0 #20
+2026/06/19-01:31:53.509 6bdc Level-0 table #26: started
+2026/06/19-01:31:53.516 6bdc Level-0 table #26: 70070 bytes OK
+2026/06/19-01:31:53.518 6bdc Delete type=0 #23
+2026/06/19-01:31:53.519 6bdc Compacting 4@0 + 1@1 files
+2026/06/19-01:31:53.526 6bdc Generated table #27@0: 9 keys, 25713 bytes
+2026/06/19-01:31:53.526 6bdc Compacted 4@0 + 1@1 files => 25713 bytes
+2026/06/19-01:31:53.526 6bdc compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/19-01:31:53.527 6bdc Delete type=2 #16
+2026/06/19-01:31:53.528 6bdc Delete type=2 #18
+2026/06/19-01:31:53.528 6bdc Delete type=2 #21
+2026/06/19-01:31:53.528 6bdc Delete type=2 #24
+2026/06/19-01:31:53.528 6bdc Delete type=2 #26
+2026/06/19-01:34:53.508 6bdc Level-0 table #29: started
+2026/06/19-01:34:53.516 6bdc Level-0 table #29: 70786 bytes OK
+2026/06/19-01:34:53.517 6bdc Delete type=0 #25
+2026/06/19-01:37:53.510 6bdc Level-0 table #31: started
+2026/06/19-01:37:53.516 6bdc Level-0 table #31: 70798 bytes OK
+2026/06/19-01:37:53.517 6bdc Delete type=0 #28
+2026/06/19-01:40:53.509 6bdc Level-0 table #33: started
+2026/06/19-01:40:53.516 6bdc Level-0 table #33: 70746 bytes OK
+2026/06/19-01:40:53.518 6bdc Delete type=0 #30
+2026/06/19-02:02:42.075 6bdc Level-0 table #35: started
+2026/06/19-02:02:42.082 6bdc Level-0 table #35: 73686 bytes OK
+2026/06/19-02:02:42.083 6bdc Delete type=0 #32
+2026/06/19-02:02:42.085 6bdc Compacting 4@0 + 1@1 files
+2026/06/19-02:02:42.094 6bdc Generated table #36@0: 9 keys, 26865 bytes
+2026/06/19-02:02:42.094 6bdc Compacted 4@0 + 1@1 files => 26865 bytes
+2026/06/19-02:02:42.095 6bdc compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/19-02:02:42.096 6bdc Delete type=2 #27
+2026/06/19-02:02:42.096 6bdc Delete type=2 #29
+2026/06/19-02:02:42.096 6bdc Delete type=2 #31
+2026/06/19-02:02:42.096 6bdc Delete type=2 #33
+2026/06/19-02:02:42.096 6bdc Delete type=2 #35
+2026/06/19-02:03:02.344 6bdc Level-0 table #38: started
+2026/06/19-02:03:02.352 6bdc Level-0 table #38: 75026 bytes OK
+2026/06/19-02:03:02.354 6bdc Delete type=0 #34
+2026/06/19-02:03:31.495 6bdc Level-0 table #40: started
+2026/06/19-02:03:31.501 6bdc Level-0 table #40: 77382 bytes OK
+2026/06/19-02:03:31.503 6bdc Delete type=0 #37
+2026/06/19-02:04:08.566 6bdc Level-0 table #42: started
+2026/06/19-02:04:08.572 6bdc Level-0 table #42: 78878 bytes OK
+2026/06/19-02:04:08.574 6bdc Delete type=0 #39
+2026/06/19-02:04:46.012 6bdc Level-0 table #44: started
+2026/06/19-02:04:46.021 6bdc Level-0 table #44: 78794 bytes OK
+2026/06/19-02:04:46.022 6bdc Delete type=0 #41
+2026/06/19-02:04:46.024 6bdc Compacting 4@0 + 1@1 files
+2026/06/19-02:04:46.032 6bdc Generated table #45@0: 9 keys, 28365 bytes
+2026/06/19-02:04:46.032 6bdc Compacted 4@0 + 1@1 files => 28365 bytes
+2026/06/19-02:04:46.033 6bdc compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/06/19-02:04:46.034 6bdc Delete type=2 #36
+2026/06/19-02:04:46.034 6bdc Delete type=2 #38
+2026/06/19-02:04:46.034 6bdc Delete type=2 #40
+2026/06/19-02:04:46.034 6bdc Delete type=2 #42
+2026/06/19-02:04:46.034 6bdc Delete type=2 #44
+2026/06/19-02:05:20.818 6bdc Level-0 table #47: started
+2026/06/19-02:05:20.828 6bdc Level-0 table #47: 79766 bytes OK
+2026/06/19-02:05:20.830 6bdc Delete type=0 #43
+2026/06/19-02:05:41.545 6bdc Level-0 table #49: started
+2026/06/19-02:05:41.554 6bdc Level-0 table #49: 81442 bytes OK
+2026/06/19-02:05:41.556 6bdc Delete type=0 #46
+2026/06/19-02:06:00.564 6bdc Level-0 table #51: started
+2026/06/19-02:06:00.572 6bdc Level-0 table #51: 83422 bytes OK
+2026/06/19-02:06:00.574 6bdc Delete type=0 #48

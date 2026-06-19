@@ -1,0 +1,60 @@
+[4448:13620:0618/224733.370:WARNING:chrome_main_delegate.cc(745)] This is Chrome version 128.0.6613.138 (not a warning)
+[4448:6056:0618/224733.431:ERROR:google_update_settings.cc(265)] Failed opening key Software\Chromium to set usagestats; result: 5
+[4448:13620:0618/224733.469:WARNING:account_consistency_mode_manager.cc(77)] Desktop Identity Consistency cannot be enabled as no OAuth client ID and client secret have been configured.
+[11520:29496:0618/224738.067:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 5-4F76E7B68640A3D2B6352A3F92C1DBBE will be ignored
+[4448:13620:0618/224741.528:ERROR:device_event_log_impl.cc(196)] [22:47:41.200] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+[26768:28428:0618/235007.052:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame 7-925F0A0A475575D28F8449818C047D1D will be ignored
+[21720:20520:0618/235202.530:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(103,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[4448:26176:0618/235226.010:ERROR:cast_crl.cc(443)] CRL - Verification failed.
+[21720:14652:0618/235533.384:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(136,1): warning X4000: use of potentially uninitialized variable (f_i_int_int_int2)
+C:\fakepath(138,1): warning X4000: use of potentially uninitialized variable (f_i_int_int_int2)
+C:\fakepath(174,1): warning X4000: use of potentially uninitialized variable (f_u_int_int_int)
+
+[21720:20520:0618/235533.979:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(166,1): warning X4000: use of potentially uninitialized variable (f_renderMipMapLevel_int)
+
+[21720:24384:0618/235534.282:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(382,11-39): warning X4008: floating point division by zero
+C:\fakepath(382,11-39): warning X4008: floating point division by zero
+
+[21720:7304:0618/235534.666:ERROR:gl_utils.cc(415)] [.WebGL-000054880362AA00] GL_INVALID_OPERATION: Two textures of different types use the same sampler location.
+[21720:7304:0618/235534.699:ERROR:gl_utils.cc(415)] [.WebGL-000054880362AA00] GL_INVALID_OPERATION: Two textures of different types use the same sampler location.
+[21720:19220:0618/235538.622:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(93,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(71,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[21720:28888:0618/235538.790:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(187,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(165,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(187,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(165,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[21720:29492:0618/235538.842:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(128,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(106,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(128,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(106,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(128,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(106,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[21720:20520:0618/235539.239:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[21720:7304:0618/235539.767:WARNING:angle_platform_impl.cc(49)] HLSLCompiler.cpp:250 (rx::HLSLCompiler::compileToBinary): 
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+C:\fakepath(828,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_mat4x4_int)
+C:\fakepath(806,1-6): warning X4000: use of potentially uninitialized variable (dyn_index_vec4_float4_int)
+
+[7756:20068:0619/000445.933:WARNING:frame_impl.cc(430)] virtual CefFrameImpl::SendProcessMessage sent to detached frame B-A807F7AA566F3E3B59C4E0FBD7E180E5 will be ignored
+[4448:13620:0619/002623.080:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
