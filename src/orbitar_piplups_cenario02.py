@@ -5,16 +5,17 @@ import shutil
 import datetime
 import subprocess
 import sys
+from pathlib import Path
 
 # ── Instalar dependências ────────────────────────────────────────
 def pip_install(pkg):
     subprocess.check_call([sys.executable, "-m", "pip", "install", pkg, "--quiet"])
 
 try:
-    from PIL import Image, ImageDraw
+    from PIL import Image
 except ImportError:
     pip_install("Pillow")
-    from PIL import Image, ImageDraw
+    from PIL import Image
 
 try:
     import numpy as np
@@ -23,28 +24,35 @@ except ImportError:
     import numpy as np
 
 # ─── CONFIGURAÇÃO ─────────────────────────────────────────────
-CENARIO        = "02"
-RAIO           = 380.0
-NUM_ANGULOS    = 60
-BBOX_MAX_FRAC  = 0.80
-BBOX_MIN_FRAC  = 0.03
-MARGEM_BORDA   = 20
-FOV_H          = 90.0
-FRAMES_ESPERA  = 60
-FRAMES_FICHEIRO = 90
-LARGURA        = 1920
-ALTURA_RES     = 1080
-CLASSE_ID      = 0
-ESPESSURA_BBOX = 3
+CENARIO            = "03"
+RAIO               = 480.0
+CAM_ALTURA_OFFSET  = 150.0  # Altura extra da câmara (em cm) para evitar clipping
+NUM_ANGULOS        = 60
+BBOX_MAX_FRAC      = 0.80
+BBOX_MIN_FRAC      = 0.03
+MARGEM_BORDA       = 20
+FOV_H              = 90.0
+FRAMES_ESPERA      = 60
+FRAMES_FICHEIRO    = 90
+LARGURA            = 1920
+ALTURA_RES         = 1080
+CLASSE_ID          = 0
+ESPESSURA_BBOX     = 3
 
 # Paths dos materiais
 MAT_NORMAL_PATH   = "/Game/Piplup/3DModel"
 MAT_EMISSIVE_PATH = "/Game/Piplup/3DModel_Emissive"
 
-BASE_DIR        = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\Dataset\Synthetic\Cenario_02"
-IMAGES_DIR      = os.path.join(BASE_DIR, "images")
-LABELS_DIR      = os.path.join(BASE_DIR, "labels")
-SCREENSHOTS_DIR = r"C:\Users\Filipa Rebelo\OneDrive - Cachapuz - Bilanciai Group\Ambiente de Trabalho\PI-CG\PI_CG_G3_T3\Saved\Screenshots\WindowsEditor"
+# ─── PATHS DINÂMICOS ───────────────────────────────────────────
+# Deteta o caminho dinamicamente com base na localização deste script Python
+SCRIPT_PATH     = Path(__file__).resolve().parent
+REPO_ROOT       = SCRIPT_PATH.parent
+BASE_DIR        = REPO_ROOT / "Dataset" / "Synthetic" / f"Cenario_{CENARIO}"
+IMAGES_DIR      = str(BASE_DIR / "images")
+LABELS_DIR      = str(BASE_DIR / "labels")
+
+# Caminho nativo de screenshots do Unreal Engine
+SCREENSHOTS_DIR = unreal.Paths.screen_shot_dir()
 # ──────────────────────────────────────────────────────────────
 
 os.makedirs(IMAGES_DIR,  exist_ok=True)
@@ -104,8 +112,11 @@ def restaurar_todos(todos_pips):
 def calcular_bbox_pixels(img_path):
     """Detecta pixeis vermelhos do emissivo: R>=240, G<130, B<120."""
     try:
-        img = Image.open(img_path).convert("RGB")
-        arr = np.array(img)
+        # Uso do 'with' para garantir o fecho correto do ficheiro e libertar memória
+        with Image.open(img_path) as img:
+            img_rgb = img.convert("RGB")
+            arr = np.array(img_rgb)
+            
         mask = (arr[:, :, 0] >= 240) & (arr[:, :, 1] < 130) & (arr[:, :, 2] < 120)
         rows = np.where(mask.any(axis=1))[0]
         cols = np.where(mask.any(axis=0))[0]
@@ -183,14 +194,16 @@ def calcular_posicoes():
         nome = piplup.get_actor_label()
         origin, extent = piplup.get_actor_bounds(False)
         centro = origin
+
         unreal.log(f"  {nome}: centro=({centro.x:.0f},{centro.y:.0f},{centro.z:.0f})")
 
         for j in range(NUM_ANGULOS):
             a = math.radians(j * 360.0 / NUM_ANGULOS)
+            # Incorporação da variável CAM_ALTURA_OFFSET no eixo Z
             cam_loc = unreal.Vector(
                 centro.x + RAIO * math.cos(a),
                 centro.y + RAIO * math.sin(a),
-                centro.z
+                centro.z + CAM_ALTURA_OFFSET
             )
             cam_rot = unreal.MathLibrary.find_look_at_rotation(cam_loc, centro)
             fname   = f"Cenario{CENARIO}_{nome}_ang{j+1:02d}_{SESSAO}"
@@ -311,7 +324,7 @@ def on_tick(dt):
 if total > 0:
     unreal.log(f"=== CENARIO {CENARIO} ===")
     unreal.log(f"  {len(todos_piplups_cena)} Piplups x {NUM_ANGULOS} angulos = {total} tentativas")
-    unreal.log(f"  Raio: {RAIO}cm | Margem borda: {MARGEM_BORDA}px | Bbox min: {BBOX_MIN_FRAC:.0%}")
+    unreal.log(f"  Raio: {RAIO}cm | Offset Altura: {CAM_ALTURA_OFFSET}cm | Margem borda: {MARGEM_BORDA}px")
     unreal.log(f"  Imagens -> {IMAGES_DIR}")
     unreal.log(f"  Labels  -> {LABELS_DIR}")
     cb_handle[0] = unreal.register_slate_pre_tick_callback(on_tick)
